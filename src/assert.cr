@@ -17,8 +17,7 @@ module Assert
     elsif expr.is_a? Float
       return expr > 0.0
     elsif expr.is_a? String
-      return false if expr == "" || expr.downcase == "false"
-      return true if expr.downcase == "true"
+      return false if expr == "" || expr.downcase == "false" || expr.downcase == "no" || expr.downcase == "nil" || expr.downcase == "null"
       begin
         return Assert.to_b(expr.to_i) if expr.to_i.to_s == expr
       rescue
@@ -27,6 +26,8 @@ module Assert
         return Assert.to_b(expr.to_f) if expr.to_f.to_s == expr
       rescue
       end
+      return true
+    elsif expr.is_a? Object
       return true
     end
     false

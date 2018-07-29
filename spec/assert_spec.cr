@@ -1,5 +1,9 @@
 require "./spec_helper"
 
+class SomeClass
+  property id : Int32 = 0
+end
+
 describe "#assert!" do
   it "succeeds when value is true" do
     (assert! true).should eq true
@@ -33,5 +37,12 @@ describe "#assert!" do
     expect_raises(Exception) { assert! "" }
     expect_raises(Exception) { assert! "0" }
     expect_raises(Exception) { assert! "0.0" }
+    expect_raises(Exception) { assert! "nil" }
+    expect_raises(Exception) { assert! "No" }
+  end
+
+  it "works with nil and objects" do
+    assert! SomeClass.new
+    expect_raises(Exception) { assert! nil }
   end
 end
