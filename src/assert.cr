@@ -1,9 +1,9 @@
 macro assert!(expr)
   {% unless flag?(:release) %}
     {% if expr.is_a? StringLiteral %}
-      (raise "assertion {{expr.id}} failed" unless Assert.to_b({{expr}})) || true
+      (raise "assertion \"{{expr.id}}\" failed" unless Assert.to_b({{expr}})) || true
     {% else %}
-      (raise "assertion {{expr}} failed" unless Assert.to_b({{expr}})) || true
+      (raise "assertion \"{{expr}}\" failed" unless Assert.to_b({{expr}})) || true
     {% end %}
   {% end %}
 end
