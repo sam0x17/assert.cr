@@ -33,12 +33,9 @@ describe "#assert!" do
     assert! "yay"
     assert! "1"
     assert! "1.1"
-    expect_raises(Exception) { assert! "fAlse" }
     expect_raises(Exception) { assert! "" }
     expect_raises(Exception) { assert! "0" }
     expect_raises(Exception) { assert! "0.0" }
-    expect_raises(Exception) { assert! "nil" }
-    expect_raises(Exception) { assert! "No" }
   end
 
   it "works with nil and objects" do
