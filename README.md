@@ -11,17 +11,18 @@ If you build your app/library with the `--release` compile-time flag (which you 
 always use for production builds), assertions will not be compiled so there will be
 _zero_ performance hit for using this library.
 
-## Full Example
+## Example
 
-This is a simple assertion that will fail:
+This is a simple assertion that will fail if it gets to execute since `5 - 5 = 0` and `0` is `false`:
 ```crystal
 # example.cr
 require "assert"
 
 assert! 5 - 5
+puts "made it past the assertion"
 ```
 
-Yielding this error at runtime:
+Runtime result without --release flag:
 ```bash
 $ crystal run src/example.cr
 Unhandled exception: assertion "5 - 5" failed (Exception)
@@ -32,6 +33,12 @@ Unhandled exception: assertion "5 - 5" failed (Exception)
   from __libc_start_main
   from _start
   from ???
+```
+
+Runtime result with --release flag:
+```bash
+$ crystal run src/example.cr --release
+made it past the assertion
 ```
 
 ## Installation
