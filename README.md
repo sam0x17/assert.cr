@@ -11,6 +11,16 @@ If you build your app/library with the `--release` compile-time flag (which you 
 always use for production builds), assertions will not be compiled so there will be
 _zero_ performance hit for using this library.
 
+## Installation
+
+Add this to your application's `shard.yml`:
+
+```yaml
+dependencies:
+  assert:
+    github: sam0x17/assert.cr
+```
+
 ## Example
 
 This is a simple assertion that will fail if it gets to execute since `5 - 5 = 0` and `0` is `false`:
@@ -39,14 +49,4 @@ Runtime result with --release flag:
 ```bash
 $ crystal run src/example.cr --release
 made it past the assertion
-```
-
-## Installation
-
-Add this to your application's `shard.yml`:
-
-```yaml
-dependencies:
-  assert:
-    github: sam0x17/assert.cr
 ```
