@@ -45,4 +45,9 @@ describe "#assert!" do
     assert! SomeClass.new
     expect_raises(Exception) { assert! nil }
   end
+
+  it "works with boolean expressions" do
+    assert! 2 + 2 == 4
+    expect_raises(Exception) { assert! 2 + 1 == 4 }
+  end
 end
