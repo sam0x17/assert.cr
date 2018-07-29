@@ -32,6 +32,6 @@ module Assert
     elsif expr.is_a? Object
       return true
     end
-    false
+    !!expr
   end
 end
