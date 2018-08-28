@@ -4,6 +4,6 @@ version: 1.1.1
 authors:
   - Sam Johnson <sam@durosoft.com>
 
-crystal: 0.26.0
+crystal: 0.26.1
 
 license: MIT
