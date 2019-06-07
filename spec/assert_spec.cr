@@ -47,4 +47,9 @@ describe "#assert!" do
     assert! 2 + 2 == 4
     expect_raises(Exception) { assert! 2 + 1 == 4 }
   end
+
+  it "works with non exclamation-point syntax" do
+    assert 2 + 2 == 4
+    expect_raises(Exception) { assert 2 + 1 == 4 }
+  end
 end

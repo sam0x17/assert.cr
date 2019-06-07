@@ -11,6 +11,12 @@ If you build your app/library with the `--release` compile-time flag (which you 
 always use for production builds), assertions will not be compiled so there will be
 _zero_ performance hit for using this library.
 
+## New: Release Assertions
+
+Assertions that run even when compiled with the `--release` flag are now supported via
+the `assert` (no exclamation point) macro. This can be thought of as a simple shorthand
+for raising an error if `expr` is false, but is useful in a variety of circumstances.
+
 ## Installation
 
 Add this to your application's `shard.yml`:

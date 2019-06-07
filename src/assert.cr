@@ -8,6 +8,14 @@ macro assert!(expr)
   {% end %}
 end
 
+macro assert(expr)
+  {% if expr.is_a? StringLiteral %}
+    (raise "assertion \"{{expr.id}}\" failed" unless Assert.to_b({{expr}})) || true
+  {% else %}
+    (raise "assertion \"{{expr}}\" failed" unless Assert.to_b({{expr}})) || true
+  {% end %}
+end
+
 module Assert
   def self.to_b(expr)
     if expr.is_a? Bool
