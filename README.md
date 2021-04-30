@@ -1,6 +1,6 @@
 # assert.cr
 
-assert.cr provides a simple C++-style `assert!` macro you can use anywhere in your crystal code. if
+assert.cr provides a simple C++-style `assert!` macro you can use anywhere in your crystal code. If
 the expression passed to `assert!` [roughly evaluates to true](https://github.com/sam0x17/assert.cr/blob/master/src/assert.cr#L12)
 at runtime, then nothing will happen and your code will proceed on normally. If the
 expression evaluates to false (e.g. `assert! false`, `assert! 2 + 1 == 4` or `assert! 0`),
